@@ -6,30 +6,34 @@
 using namespace std;
 
 int main(){
-    const int max_size = 2; //this is to make sure I don't have over 2 objects
     srand(time(0)); //so that it is random
+    const int max_size = 2; //this is to make sure I don't have over 2 objects
     deque <Car> Cque;
 
-    for (int i = 0, i <max_size, ++i){
+    for (int i = 0; i <max_size; i++){
         Cque.push_back(Car());
     }
     cout << "Initial Queue" << endl;
     for(auto&c : Cque){
-        c.print;
+        c.print();
     }
     while (!Cque.empty()){
         int percent = rand() % 100;
 
         if (percent < 45){ //45% that a new car is going to join the back of the queuw
+            cout << endl;
             Cque.push_back(Car());
-            cout << Cque.back().print() << "joined the queue" << endl;
+            Cque.back().print();
+            cout << "joined the queue" << endl;
         }
         else {
-            cout << Cque.front().print() << "have just paid and left" << endl; //I added this before popping because after we pop, there will be a new car at the front 
+            cout << endl;
+            Cque.front().print();
+            cout << "have just paid and left" << endl; //I added this before popping because after we pop, there will be a new car at the front 
             Cque.pop_front();
         }
         if(Cque.empty()){
-            cout << "Queue now empty." << cout; //if the que is empty after going through if else statements, this will be printed
+            cout << "Queue now empty." << endl; //if the que is empty after going through if else statements, this will be printed
         }
         else {
             cout << "Queue: ";
