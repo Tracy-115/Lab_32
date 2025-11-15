@@ -1,5 +1,8 @@
 #include "Car.h"//included the Car.h file
 #include <deque> //added deque to my code
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
 using namespace std;
 
 int main(){
@@ -17,20 +20,22 @@ int main(){
     while (!Cque.empty()){
         int percent = rand() % 100;
 
-        if (percent <= 45){
+        if (percent < 45){ //45% that a new car is going to join the back of the queuw
             Cque.push_back(Car());
             cout << Cque.back().print() << "joined the queue" << endl;
         }
         else {
-            cout << Cque.front().print() << "have just paid and left" << endl;
+            cout << Cque.front().print() << "have just paid and left" << endl; //I added this before popping because after we pop, there will be a new car at the front 
             Cque.pop_front();
         }
-        cout << "Queue: ";
-        for (auto&c : Cque){
-        c.print(); // the print() comed from Car.h file
-         }
         if(Cque.empty()){
-            cout << "Queue now empty." << cout;
+            cout << "Queue now empty." << cout; //if the que is empty after going through if else statements, this will be printed
+        }
+        else {
+            cout << "Queue: ";
+            for (auto&c : Cque){
+            c.print(); // the print() comed from Car.h file
+            }
         }
 
     }
