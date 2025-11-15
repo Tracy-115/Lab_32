@@ -10,15 +10,19 @@ int main(){
 
     cout << "Initially:" << endl;
     for (auto&c : Cque){
-        Cque.print();
+        c.print(); // the print() comed from Car.h file
     }
 
 
     Cque.pop_back(); //removing the front
+    cout << "After popping:" << endl;
+    for (auto&c : Cque){
+        c.print();
+    }
     Cque.push_front(Car());
     Cque.pop_front(); //removing the back
-    cout << Cque.size() << endl; //this will tell us how many objects are in there
-    Cque.front(); //accessing the front
-    Cque.back(); //accessing the back
-
+    cout << "Size: " << Cque.size() << endl; //this will tell us how many objects are in there
+    Cque.front().print(); //printing the front
+    Cque.back().print(); //printing the back
+    return 0;
 }
