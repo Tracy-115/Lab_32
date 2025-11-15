@@ -10,7 +10,7 @@ int main(){
     for (int i = 0, i <max_size, ++i){
         Cque.push_back(Car());
     }
-    cout << "Initial Condition" << endl;
+    cout << "Initial Queue" << endl;
     for(auto&c : Cque){
         c.print;
     }
@@ -19,17 +19,21 @@ int main(){
 
         if (percent <= 45){
             Cque.push_back(Car());
-            cout << Cque.back().print() << "joined the que" << endl;
+            cout << Cque.back().print() << "joined the queue" << endl;
         }
         else {
-            cout << Cque.front().print() << ""
+            cout << Cque.front().print() << "have just paid and left" << endl;
             Cque.pop_front();
         }
+        cout << "Queue: ";
+        for (auto&c : Cque){
+        c.print(); // the print() comed from Car.h file
+         }
+        if(Cque.empty()){
+            cout << "Queue now empty." << cout;
+        }
+
     }
-
-
-
-
 
 
     //Milestone 1
