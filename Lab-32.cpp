@@ -17,19 +17,19 @@ int main(){
     for(auto&c : Cque){
         c.print();
     }
+    int n = 1;
     while (!Cque.empty()){
         int percent = rand() % 100;
-
+        cout << endl;
+        cout << "Operation " << n << endl;
         if (percent < 45){ //45% that a new car is going to join the back of the queuw
-            cout << endl;
             Cque.push_back(Car());
+            cout << "Car just joined: " << endl;
             Cque.back().print();
-            cout << "joined the queue" << endl;
         }
         else {
-            cout << endl;
+            cout << "Just paid and left: " << endl; //I added this before popping because after we pop, there will be a new car at the front 
             Cque.front().print();
-            cout << "have just paid and left" << endl; //I added this before popping because after we pop, there will be a new car at the front 
             Cque.pop_front();
         }
         if(Cque.empty()){
@@ -41,11 +41,12 @@ int main(){
             c.print(); // the print() comed from Car.h file
             }
         }
+        n++;
 
     }
 
 
-    //Milestone 1
+    /*Milestone 1
     cout << "This is from milestone 1" << endl;
     Cque.push_back(Car());
     Cque.push_back(Car()); // added 2 cars to the back 
@@ -63,6 +64,7 @@ int main(){
     Cque.pop_front(); //removing the back
     cout << "Size: " << Cque.size() << endl; //this will tell us how many objects are in there
     Cque.front().print(); //printing the front
-    Cque.back().print(); //printing the back
+    Cque.back().print(); //printing the back*/
+    
     return 0;
 }
