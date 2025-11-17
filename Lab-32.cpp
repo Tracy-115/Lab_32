@@ -10,9 +10,11 @@ int main(){
     srand(time(0)); //so that it is random
     const int lane = 4; //this is to make sure I don't have over 2 objects
     deque<Car> Cque[4];
-
-    for (int i = 0; i <lane; i++){ // adding cars to wach of the lanes
-        Cque[i].push_back(Car());
+    // adding cars to wach of the lanes
+    for (int i = 0; i <lane; i++){ //this goes through each lane
+        for (int c= 0; c<2; c++){ //this addes 2 cars
+            Cque[i].push_back(Car());
+        }
     }
 
     //printing to see if it works this is a part of milestone 2
@@ -20,7 +22,8 @@ int main(){
         for(auto&c : Cque[i]){ //this one access the cars in each lane
         c.print();
         }
-    }
+        cout << endl;
+    }//because of the change in the first loop, this loop pack is going to print 2 cars for each lane
 
     cout << "Initial Queue" << endl;
     for(auto&c : Cque){
