@@ -33,16 +33,11 @@ int main(){
             int percent = rand() % 100;
             cout << endl;
             cout << "Lane " << n << endl;
-            if ( Cque[i].empty){
+            if ( Cque[i].empty()){
                 if (percent < 50){ //changed to 50%
                     Cque[i].push_back(Car());
                     cout << "Car just joined: " ;
                     Cque[i].back().print();
-                }
-                else {
-                    cout << "Just paid and left: "; //I added this before popping because after we pop, there will be a new car at the front 
-                    Cque[i].front().print();
-                    Cque[i].pop_front();
                 }
             }
             n++;
