@@ -4,16 +4,24 @@
 #include <ctime>
 #include <cstdlib>
 using namespace std;
-//Add More Lanes: There are now 4 toll booth lanes at play. Use an array to hold the lanes. The array will be of type deque<Car>. When the simulation starts, pre-populate the lanes with 2 cars like before. Each time period will now have operations happening on all lines.
+//Your code has created the array of deques, and tests operations on this complex data structure to validate it.
 
 int main(){
     srand(time(0)); //so that it is random
     const int lane = 4; //this is to make sure I don't have over 2 objects
     deque<Car> Cque[4];
 
-    for (int i = 0; i <lane; i++){
-        Cque.push_back(Car());
+    for (int i = 0; i <lane; i++){ // adding cars to wach of the lanes
+        Cque[i].push_back(Car());
     }
+
+    //printing to see if it works this is a part of milestone 2
+    for (int i = 0; i <lane; i++){ //this one goes through all 4 lanes
+        for(auto&c : Cque[i]){ //this one access the cars in each lane
+        c.print();
+        }
+    }
+
     cout << "Initial Queue" << endl;
     for(auto&c : Cque){
         c.print();
