@@ -43,17 +43,7 @@ int main(){
             Cque[i].front().print();
             Cque[i].pop_front();
         }
-        if(Cque[i].empty()){
-            cout << "Queue now empty." << endl; //if the que is empty after going through if else statements, this will be printed
-        }
-        else {
-            cout << "Queue: " << endl;
-            for (auto&c : Cque[i]){
-            c.print(); // the print() comed from Car.h file
-            }
-        }
-        n++;
-        if (percent < leave){
+        if (percent < leave){ //the paid and joined loops are pretty similar to the onees above
             cout << "Paid: ";
             Cque[i].front().print;
             cout << endl;
@@ -65,14 +55,25 @@ int main(){
             Cque.back().print();
         }
         else if (percent < leave + join + shift){
-            Car temp = Cque[i].back();
+            Car temp = Cque[i].back(); //what i did here was I stored one data into temp and then remove it from the initial lanne, and then add it into a new lane
             Cque[i].pop_back();
             int Lane;
             Lane = rand()%lane;
             Cque[Lane].push_back(temp);
-
+            cout << "Switched: ";
+            Cque[Lane].back().print();
 
         }
+                if(Cque[i].empty()){
+            cout << "Queue now empty." << endl; //if the que is empty after going through if else statements, this will be printed
+        }
+        else {
+            cout << "Queue: " << endl;
+            for (auto&c : Cque[i]){
+            c.print(); // the print() comed from Car.h file
+            }
+        }
+        n++;
 
     }
 }
