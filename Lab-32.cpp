@@ -18,6 +18,7 @@ int main(){
     }
 
     //printing to see if it works this is a part of milestone 2
+    cout << "Initial Queue" << endl;
     for (int i = 0; i <lane; i++){ //this one goes through all 4 lanes
         for(auto&c : Cque[i]){ //this one access the cars in each lane
         c.print();
@@ -25,26 +26,22 @@ int main(){
         cout << endl;
     }//because of the change in the first loop, this loop pack is going to print 2 cars for each lane
 
-    cout << "Initial Queue" << endl;
-    for(auto&c : Cque){
-        c.print();
-    }
     int n = 1;
-    while (!Cque.empty()){
+    for(int i =0; i < lane; i++){
         int percent = rand() % 100;
         cout << endl;
         cout << "Operation " << n << endl;
-        if (percent < 45){ //45% that a new car is going to join the back of the queuw
-            Cque.push_back(Car());
+        if (percent < 50){ //45% that a new car is going to join the back of the queuw
+            Cque[i].push_back(Car());
             cout << "Car just joined: " << endl;
-            Cque.back().print();
+            Cque[i].back().print();
         }
         else {
             cout << "Just paid and left: " << endl; //I added this before popping because after we pop, there will be a new car at the front 
-            Cque.front().print();
-            Cque.pop_front();
+            Cque[i].front().print();
+            Cque[i].pop_front();
         }
-        if(Cque.empty()){
+        if(Cque[i].empty()){
             cout << "Queue now empty." << endl; //if the que is empty after going through if else statements, this will be printed
         }
         else {
