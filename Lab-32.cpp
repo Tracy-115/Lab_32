@@ -31,13 +31,13 @@ int main(){
         int percent = rand() % 100;
         cout << endl;
         cout << "Operation " << n << endl;
-        if (percent < 50){ //45% that a new car is going to join the back of the queuw
+        if (percent < 50){ //changed to 50%
             Cque[i].push_back(Car());
-            cout << "Car just joined: " << endl;
+            cout << "Car just joined: " ;
             Cque[i].back().print();
         }
         else {
-            cout << "Just paid and left: " << endl; //I added this before popping because after we pop, there will be a new car at the front 
+            cout << "Just paid and left: "; //I added this before popping because after we pop, there will be a new car at the front 
             Cque[i].front().print();
             Cque[i].pop_front();
         }
@@ -45,8 +45,8 @@ int main(){
             cout << "Queue now empty." << endl; //if the que is empty after going through if else statements, this will be printed
         }
         else {
-            cout << "Queue: ";
-            for (auto&c : Cque){
+            cout << "Queue: " << endl;
+            for (auto&c : Cque[i]){
             c.print(); // the print() comed from Car.h file
             }
         }
