@@ -7,6 +7,7 @@ using namespace std;
 //Your code has created the array of deques, and tests operations on this complex data structure to validate it.
 
 int main(){
+    const int leave = 46, int join = 39, int shift = 15;
     srand(time(0)); //so that it is random
     const int lane = 4; //this is to make sure I don't have over 2 objects
     deque<Car> Cque[4];
@@ -52,9 +53,34 @@ int main(){
             }
         }
         n++;
+        if (percent < leave){
+            cout << "Paid: ";
+            Cque[i].front().print;
+            cout << endl;
+            Cque[i].pop_front();
+        }
+        else if (percent < leave + join){
+            Cque.push_back();
+            cout << "Joined: ";
+            Cque.back().print();
+        }
+        else if (percent < leave + join + shift){
+            Car temp = Cque[i].back();
+            Cque[i].pop_back();
+            int Lane;
+            Lane = rand()%lane;
+            Cque[Lane].push_back(temp);
+
+
+        }
 
     }
 }
+/*The three possible operations and their probabilities are:
 
+46% probability that the car at the head of the queue pays its toll and leaves the queue
+39% probability that another car joins the queue
+15% probability that the rear car will shift lanes
+All these probability values need to be stored as constants defined in your program, never in hard-coding.*/
     return 0;
 }
