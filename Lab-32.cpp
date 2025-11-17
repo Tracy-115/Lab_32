@@ -27,7 +27,7 @@ int main(){
         cout << endl;
     }//because of the change in the first loop, this loop pack is going to print 2 cars for each lane
     for (int t=0; t < Time; t++){
-        cout << "Time: " << t << endl;
+        cout << "Time: " << t+1 << endl;
         int n = 1;
         for(int i =0; i < lane; i++){
             int percent = rand() % 100;
@@ -41,7 +41,7 @@ int main(){
                 }
             }
             n++;
-            if (percent < leave){ //the paid and joined loops are pretty similar to the onees above
+            if (percent < leave ){ //the paid and joined loops are pretty similar to the onees above
                 cout << "Paid: ";
                 Cque[i].front().print();
                 cout << endl;
@@ -66,11 +66,12 @@ int main(){
             }
         }
         for(int i =0; i < lane; i++){
+            cout << "Lane " << i+1;
             if(Cque[i].empty()){
-                cout << "Queue now empty." << endl; //if the que is empty after going through if else statements, this will be printed
+                cout << " Queue now empty." << endl; //if the que is empty after going through if else statements, this will be printed
             }
             else {
-                cout << "Queue: " << endl;
+                cout << " Queue: " << endl;
                 for (auto&c : Cque[i]){
                     c.print(); // the print() comed from Car.h file
                 }
